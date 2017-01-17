@@ -29,7 +29,8 @@ public class HeadlessTest {
 	} // main
 	
 	public HeadlessTest(String whichBrowser) throws Exception {
-		
+
+		// choose which driver to use
 		WebDriver webDriver = getWebDriver(whichBrowser);
 		
 		// run test
