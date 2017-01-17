@@ -22,6 +22,7 @@ public class HeadlessTest {
 		if(args.length>0) {
 			whichBrowser = args[0];
 		}
+		System.out.println("User chose driver: " + whichBrowser);
 		
 		HeadlessTest test = new HeadlessTest(whichBrowser);
 		
@@ -41,7 +42,9 @@ public class HeadlessTest {
 		
 		// wait and then check the page title of the results page
         Thread.sleep(2000);
+        System.out.println("******************************************");
 		System.out.println("Page title of results using " + whichBrowser + ": " + webDriver.getTitle());
+		System.out.println("******************************************");
 
 		// close browser
 		webDriver.quit();
@@ -67,7 +70,7 @@ public class HeadlessTest {
 		}else if ("phantomjs".toLowerCase().equals(whichBrowser)) {
             System.setProperty("phantomjs.binary.path", props.getProperty("phantomjs.binary.path"));		
             driver = new PhantomJSDriver();	
-		}else if ("phantomjs".toLowerCase().equals(whichBrowser)) {
+		}else if ("htmlunit".toLowerCase().equals(whichBrowser)) {
 			driver = new HtmlUnitDriver();
 		}else {
 			throw new Exception("Only valid webdrivers are: htmlunit|phantomjs|chrome");
